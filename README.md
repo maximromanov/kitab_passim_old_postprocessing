@@ -1,4 +1,4 @@
-# passim_srt_kitab
+# kitab_passim_old_postprocessing
 
 Postprocessing `passim` initial output [old version, forked from dasmiq](https://github.com/maximromanov/passim) into the format used in the KITAB-Project.
 
