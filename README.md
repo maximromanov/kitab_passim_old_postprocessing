@@ -1,6 +1,6 @@
 # kitab_passim_old_postprocessing
 
-Postprocessing `passim` initial output [old version, forked from dasmiq](https://github.com/maximromanov/passim) into the format used in the KITAB-Project.
+Postprocessing `passim` initial output ([old version, forked from dasmiq](https://github.com/maximromanov/passim)) into the format used in the KITAB-Project.
 
 1. Running `make` does the trick. It takes `pall.proc.srt.gz` and:
 	1. splits it into smaller parts (keeps them unzipped); runs a single process
