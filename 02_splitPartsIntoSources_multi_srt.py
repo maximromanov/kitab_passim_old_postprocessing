@@ -59,7 +59,7 @@ def splitPartsIntoSources(folder, num):
             tempFile = file[:-4]+".temp"
             os.rename(folder + file, folder + tempFile)
             
-            fileFolder = folder + "_split/" + file[:-4] + "/"
+            fileFolder = folder + "2_split/" + file[:-4] + "/"
             if os.path.exists(fileFolder):
                 shutil.rmtree(fileFolder)
             os.makedirs(fileFolder)
@@ -94,12 +94,12 @@ def splitPartsIntoSources(folder, num):
                     f.write(v)
 
             # move processed file and rename it back to *.gz
-            if os.path.exists(folder+"_processed/"):
+            if os.path.exists(folder+"1_processed/"):
                 pass
             else:
-                os.makedirs(folder+"_processed/")
+                os.makedirs(folder+"1_processed/")
                 
-            os.rename(folder + tempFile, folder+"_processed/" + file)
+            os.rename(folder + tempFile, folder+"1_processed/" + file)
             
         else:
             print("All files have been processed...")

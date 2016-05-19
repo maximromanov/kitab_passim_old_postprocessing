@@ -34,7 +34,7 @@ def one2one(folder, num):
     startTimeProcess = datetime.datetime.now()
     process = "Process %d" % num
     print("Splitting one2many into one2one (%s)" % process)
-    srcFolder = folder + "_sources/"
+    srcFolder = folder + "3_sources/"
 
     for run in range(1,101):
         print(process)
@@ -66,13 +66,13 @@ def one2one(folder, num):
                         srtID = line.split("\t")[8].split("_")[0] + \
                                 "_" + \
                                 line.split("\t")[9].split("_")[0]
-                        print(srtID)
+                        #print(srtID)
                         if srtID in dic:
                             dic[srtID] = dic[srtID]+line
                         else:
                             dic[srtID] = line
                 # save results
-                trgFolder = folder + "_one2one/" + i.split(".")[0]
+                trgFolder = folder + "4_one2one/" + i.split(".")[0]
 
                 # short report
                 print(process)

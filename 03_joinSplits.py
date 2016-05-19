@@ -31,12 +31,12 @@ folder = "./parts/"
 
 # 3. Joining sections on individual sources into individual sources (true one2many)
 def joinSplits(folder):
-    trgFolder = folder + "_sources/"
+    trgFolder = folder + "3_sources/"
     if os.path.exists(trgFolder):
         shutil.rmtree(trgFolder)
     os.makedirs(trgFolder)
 
-    splitFolder = folder+"_split/"
+    splitFolder = folder+"2_split/"
     splitFolders = os.listdir(splitFolder)
 
     for fldr in splitFolders:
@@ -44,14 +44,16 @@ def joinSplits(folder):
         splitFiles = os.listdir(procFolder)
         for fl in splitFiles:
             if fl.endswith(".srt"):
-                with open(procFolder+"/"+fl, "r", encoding="utf8") as f1:
-                    f1read = f1.read()
+                with open(procFolder+"/"+fl, "r", encoding="utf8") as ftemp:
+                    fread = ftemp.read()
                     if os.path.isfile(trgFolder+fl):
-                        with open(trgFolder+fl, "w", encoding="utf8") as f1a:
-                            f1a.write(f1read)
+                        print("\tAppending to %s" % fl)
+                        with open(trgFolder+fl, "a", encoding="utf8") as fa:
+                            fa.write(fread)
                     else:
-                        with open(trgFolder+fl, "a", encoding="utf8") as f1a:
-                            f1a.write(f1read)
+                        print("Saving new file %s" % fl)
+                        with open(trgFolder+fl, "w", encoding="utf8") as fb:
+                            fb.write(fread)
 
 joinSplits(folder)
 

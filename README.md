@@ -2,11 +2,13 @@
 
 Postprocessing `passim` initial output ([old version, forked from dasmiq](https://github.com/maximromanov/passim)) into the format used in the KITAB-Project.
 
+`pall.proc.srt.gz` must be in the same folder as the scripts and Makefile.
+
 1. Running `make` does the trick. It takes `pall.proc.srt.gz` and:
-	1. splits it into smaller parts (keeps them unzipped); runs a single process
-	2. then splits every part and creates all individual files for each book; runs 12 processes (`python3`, `multiprocessing`)
-	3. merges output from each part (one-to-many, T1-to-T2, T1-to-T2, T1-to-Tx...); runs a single process
-	4. splits merged output into pairs (one-to-one), and stores all pairs for T1 into one zipped file; runs 12 processes (`python3`, `multiprocessing`)
+	1. [s] splits it into smaller parts (keeps them unzipped); runs a single process
+	2. [m] then splits every part and creates all individual files for each book; runs 12 processes (`python3`, `multiprocessing`)
+	3. [s] merges output from each part (one-to-many, T1-to-T2, T1-to-T2, T1-to-Tx...); runs a single process
+	4. [m] splits merged output into pairs (one-to-one), and stores all pairs for T1 into one zipped file; runs 12 processes (`python3`, `multiprocessing`)
 
 ```
 postprocess_passim_output :
